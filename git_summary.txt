@@ -1,0 +1,37 @@
+깃 명령어 정리
+###############################################################
+## git 원격 저장소 url 변경하는 법
+
+# remote 정보확인
+$ git remote -v 
+ex) 
+origin  https://githubcom/wotres/temp.git (fetch)
+origin  https://githubcom/wotres/temp.git (push)
+
+# 해당 정보 변경
+$ git remote set-url origin https://github.com/wotres/temp.git
+
+###############################################################
+## 
+git push -u origin master 할때
+
+error: src refspec master does not match any
+error: failed to push some refs to 
+
+에러 해결법
+
+-> 현재 브랜치에 반영된 것이 없는 경우 발생
+# 반영할 파일 확인
+$ git status
+# 반영하고 싶은 파일 선택 
+$ git add .
+# 커밋 메시지 작성
+$ git commit -m "push code"
+# 다시 git push origin master 
+
+###############################################################
+git push 할때 
+fatal: The current branch master has no upstream branch. 에러 해결법
+-> 현재 원격저장소에 자동으로 연결된 브랜치가 없어서 발생
+따라서 set-upstream 을 이용하여 기본 리모트 브랜치 설정
+$ git push -u origin master
